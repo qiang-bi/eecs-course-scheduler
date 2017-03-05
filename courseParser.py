@@ -1,6 +1,6 @@
 #python courseParser that parse the class data of EECS department into LTRE fact format
 # (rassert! (course catalog_num course_id (title) (topic)))
-# (rassert! (meetingTime course_id (meetingDays) startHr endHr startMin EndMin))
+# (rassert! (meetingTime catalog_num course_id (meetingDays) startHr endHr startMin EndMin))
 import requests
 import json
 
@@ -16,10 +16,10 @@ print len(content)
 target = open('courses.lsp', 'w')
 
 for i in range(0, len(content)):
-        
+
 	#parse the fact: time
         meetingDays = "("
-        
+
 	#if course meeting days do not exist, skip this course
 	if content[i]['meeting_days'] is None :
 		continue
@@ -34,13 +34,16 @@ for i in range(0, len(content)):
         startMin = str(content[i]['start_time'])[3:]
         endHr = str(content[i]['end_time'])[:2]
         endMin = str(content[i]['end_time'])[3:]
-
-        target.write('(rassert! (meetingTime '+  str(content[i]['course_id'])+ ' '+ meetingDays + ' ' + startHr + ' ' + startMin + ' '+ endHr+ ' ' + endMin+'))')
+        cid = str(content[i]['course_id'])
+        cnbr = str(content[i]['catalog_num'])
+        cnbr = cnbr[:3]
+        if cnbr[0] > '3':
+            continue
+        target.write('(rassert! (meetingTime '+  cnbr+  ' '+ meetingDays + ' ' + startHr + ' ' + startMin + ' '+ endHr+ ' ' + endMin+'))')
 
 	target.write('\n')
-
-	#parse the fact for course 
-	target.write('(rassert! (course ' + str(content[i]['catalog_num']) + ' ' + str(content[i]['course_id'])+ ' (' + str(content[i]['title']) + ') (' + str(content[i]['topic']) + ')))')	
-	target.write('\n') 
+	#parse the fact for course
+	target.write('(rassert! (course ' + cnbr+ ' (' + str(content[i]['title']) + ') (' + str(content[i]['topic']) + ')))')
+	target.write('\n')
 
 target.close()
