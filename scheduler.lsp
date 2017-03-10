@@ -12,12 +12,14 @@
 (defparameter *classes*
    '(eecs348 eecs336 eecs339)) ;; interests
 
-(defparameter *requirements* '(SB TB))
+(defparameter *requirements* '(SB TB D))
 
 (defparameter *constraint-file* "data")
 
+(defvar *schedule-rule-file* "scheduleRules")
+
 (defun find-classes ()
-   (solve-attribution-problem *classes* *requirements* *constraint-file*))
+   (solve-attribution-problem *requirements* *classes* *constraint-file*))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; General purpose attribute solver
@@ -32,6 +34,7 @@
 (defun solve-attribution-problem (attributes objects constraint-file)
    (in-ltre (create-ltre "Attribution Problem Scratchpad"))
    (bps-load-file (make-bps-path "eecs-course-scheduler") constraint-file)
+   (bps-load-file (make-bps-path "eecs-course-scheduler") *schedule-rule-file* :action :compile-if-newer)
    (dd-search (make-attribute-choice-sets attributes objects)
       `(show-attribute-solution ',attributes)))
 

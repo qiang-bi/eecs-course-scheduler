@@ -1,14 +1,28 @@
 
 ;; one-to-one relationship between each class and requirement
-;;that is, each class fulfill only one req, and each req can be fulfilled
-;;only once
-(rule ((:true (?course1 satisfy ?req))
-       (:true (?course2 satisfy ?req)))
-      (rassert! (:not (:and (?course1 satisfy ?req)
-                            (?course2 satisfy ?req)
+;;each req can be fulfilled only once
+(rule ((:true (satisfy ?course1 ?req))
+       (:true (satisfy ?course2 ?req)))
+      (rassert! (:not (:and (?req ?course1)
+                            (?req ?course2)
                       )
                 )
                 :no-two-courses-count-for-same-req
+      )
+)
+
+;;no course can count for two requirements
+(rule ((:true (pairwise-nogood ?req1 ?req2) :var ?hor)
+       (:true (?req1 ?class) :var ?f1)
+       (:true (?req2 ?class) :var ?f2))
+   (rassert! (:not (:and ?hor ?f1 ?f2))))
+
+
+
+;; eliminate req that do not satisfy
+(rule ((:true (nosatisfy ?course ?req)))
+      (rassert! (:not (?req ?course))
+                :course-not-satisfy-req
       )
 )
 
