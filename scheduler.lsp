@@ -9,10 +9,15 @@
 
 (in-package :cl-user)
 
-(defparameter *classes*
-   '(eecs348 eecs336 eecs339)) ;; interests
+(defparameter *course-taken*
+    '((courseTaken eecs111)
+      (courseTaken eecs211)
+      (courseTaken eecs214)))
 
-(defparameter *requirements* '(SB TB D))
+(defparameter *classes*
+   '(eecs111 eecs211 eecs212 eecs213 eecs214 eecs303 eecs322 eecs336 eecs339 eecs345 eecs346 eecs348 eecs349 eecs370 eecs394))
+
+(defparameter *requirements* '(C1 C2 C3 C4 C5 SB SDB AIB TB IB D P))
 
 (defparameter *constraint-file* "data")
 
@@ -35,12 +40,18 @@
    (in-ltre (create-ltre "Attribution Problem Scratchpad"))
    (bps-load-file (make-bps-path "eecs-course-scheduler") constraint-file)
    (bps-load-file (make-bps-path "eecs-course-scheduler") *schedule-rule-file* :action :compile-if-newer)
+   (install-prerequisite-constraints *course-taken*)
    (dd-search (make-attribute-choice-sets attributes objects)
       `(show-attribute-solution ',attributes)))
 
 (defun show-attribute-solution (attributes)
    (format t "~%Solution:")
+   ;write predicate to limit minimum # to min-course-wanted
    (dolist (attribute attributes)
       (dolist (match (fetch `(,attribute ?object)))
          (when (true? match)
             (format t "~%  ~A" match)))))
+
+(defun install-prerequisite-constraints (courses-taken)
+   (dolist (course courses-taken)
+      (assert! course :course-taken)))
