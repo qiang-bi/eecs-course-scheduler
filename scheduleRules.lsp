@@ -22,7 +22,7 @@
 ;;prerequisite constraint
 (rule ((:true (prereq ?course ?course-need))
        (:true (satisfy ?course ?req)))
-    (when  (not (fetch `(courseTaken ,?course-need)))
+    (when  (null (fetch `(courseTaken ,?course-need)))
       (rassert! (:not (?req ?course)))
 ))
 
