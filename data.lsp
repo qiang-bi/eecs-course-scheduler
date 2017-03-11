@@ -63,7 +63,7 @@
 
 ;;;course data
 
-(rassert! (meetingTime eecs111 (Tu Th ) 14 00 15 20) :given)
+(rassert! (meetingTime eecs111 TTH 14 00 15 20) :given)
 (rassert! (nosatisfy eecs111 SB) :given)
 (rassert! (nosatisfy eecs111 SDB) :given)
 (rassert! (nosatisfy eecs111 AIB) :given)
@@ -78,7 +78,7 @@
 (rassert! (nosatisfy eecs111 C5) :given)
 (rassert! (nosatisfy eecs111 C6) :given)
 
-(rassert! (meetingTime eecs211 (Mo We Fr) 13 00 13 50) :given)
+(rassert! (meetingTime eecs211 MWF 13 00 13 50) :given)
 (rassert! (prereq eecs211 eecs111) :given)
 (rassert! (nosatisfy eecs211 SB) :given)
 (rassert! (nosatisfy eecs211 SDB) :given)
@@ -94,7 +94,7 @@
 (rassert! (nosatisfy eecs211 C5) :given)
 (rassert! (nosatisfy eecs211 C6) :given)
 
-(rassert! (meetingTime eecs212 (Mo We Fr) 15 00 15 50) :given)
+(rassert! (meetingTime eecs212 MWF 15 00 15 50) :given)
 (rassert! (prereqor eecs212 (eecs111 eecs110)) :given)
 (rassert! (nosatisfy eecs212 SB) :given)
 (rassert! (nosatisfy eecs212 SDB) :given)
@@ -110,7 +110,7 @@
 (rassert! (nosatisfy eecs212 C5) :given)
 (rassert! (nosatisfy eecs212 C6) :given)
 
-(rassert! (meetingTime eecs213 (Tu Th) 14 00 15 20) :given)
+(rassert! (meetingTime eecs213 TTH 14 00 15 20) :given)
 (rassert! (prereq eecs213 eecs211) :given)
 (rassert! (nosatisfy eecs213 SB) :given)
 (rassert! (nosatisfy eecs213 SDB) :given)
@@ -126,7 +126,7 @@
 (rassert! (nosatisfy eecs213 C5) :given)
 (rassert! (nosatisfy eecs213 C6) :given)
 
-(rassert! (meetingTime eecs214 (Mo We Fr) 13 00 13 50) :given)
+(rassert! (meetingTime eecs214 MWF 13 00 13 50) :given)
 (rassert! (prereq eecs214 eecs211) :given)
 (rassert! (nosatisfy eecs214 SB) :given)
 (rassert! (nosatisfy eecs214 SDB) :given)
@@ -142,7 +142,7 @@
 (rassert! (nosatisfy eecs214 C4) :given)
 (rassert! (nosatisfy eecs214 C6) :given)
 
-(rassert! (meetingTime eecs303 (Tu Th) 15 30 16 50) :given)
+(rassert! (meetingTime eecs303 TTH 15 30 16 50) :given)
 (rassert! (prereq eecs303 eecs203) :given)
 (rassert! (satisfy eecs303 SB) :given)
 (rassert! (satisfy eecs303 D) :given)
@@ -158,7 +158,7 @@
 (rassert! (nosatisfy eecs303 C5) :given)
 (rassert! (nosatisfy eecs303 C6) :given)
 
-(rassert! (meetingTime eecs322 (Mo We) 14 00 15 20) :given)
+(rassert! (meetingTime eecs322 MWF 14 00 15 20) :given)
 (rassert! (prereq eecs322 eecs321) :given)
 (rassert! (satisfy eecs322 SB) :given)
 (rassert! (satisfy eecs322 P) :given)
@@ -174,7 +174,7 @@
 (rassert! (nosatisfy eecs322 C5) :given)
 (rassert! (nosatisfy eecs322 C6) :given)
 
-(rassert! (meetingTime eecs336 (Tu Th ) 15 30 16 50) :given)
+(rassert! (meetingTime eecs336 TTH 15 30 16 50) :given)
 (rassert! (:and (prereq eecs336 eecs212) (prereq eecs336 eecs214)) :given)
 (rassert! (satisfy eecs336 TB) :given)
 (rassert! (satisfy eecs336 P) :given)
@@ -191,7 +191,7 @@
 (rassert! (nosatisfy eecs336 C6) :given)
 
 
-(rassert! (meetingTime eecs339 (Tu Th) 11 00 12 20) :given)
+(rassert! (meetingTime eecs339 TTH 11 00 12 20) :given)
 (rassert! (prereq eecs339 eecs214) :given)
 (rassert! (prereqor eecs339 (eecs213 eecs205)) :given)
 (rassert! (satisfy eecs339 SB) :given)
@@ -208,7 +208,7 @@
 (rassert! (nosatisfy eecs339 C5) :given)
 (rassert! (nosatisfy eecs339 C6) :given)
 
-(rassert! (meetingTime eecs345 (Mo We ) 11 00 12 20) :given)
+(rassert! (meetingTime eecs345 MWF 11 00 12 20) :given)
 (rassert! (:and (prereq eecs345 eecs340) (prereq eecs345 eecs343)) :given)
 (rassert! (satisfy eecs345 SB) :given)
 (rassert! (satisfy eecs345 P) :given)
@@ -224,7 +224,7 @@
 (rassert! (nosatisfy eecs345 C5) :given)
 (rassert! (nosatisfy eecs345 C6) :given)
 
-(rassert! (meetingTime eecs346 (Mo Tu We Fr ) 10 00 10 50) :given)
+(rassert! (meetingTime eecs346 MWF 10 00 10 50) :given)
 (rassert! (:and (prereq eecs346 eecs205)
                 (prereq eecs346 eecs203)) :given)
 (rassert! (satisfy eecs346 SB) :given)
@@ -241,7 +241,7 @@
 (rassert! (nosatisfy eecs346 C5) :given)
 (rassert! (nosatisfy eecs346 C6) :given)
 
-(rassert! (eecs348 meetingTime (Tu Th) 12 30 13 50) :given)
+(rassert! (eecs348 meetingTime TTH 12 30 13 50) :given)
 (rassert! (:and (prereq eecs348 eecs111)
                 (prereq eecs348 eecs214)) :given)
 (rassert! (satisfy eecs348 AIB) :given)
@@ -258,7 +258,7 @@
 (rassert! (nosatisfy eecs348 C5) :given)
 (rassert! (nosatisfy eecs348 C6) :given)
 
-(rassert! (meetingTime eecs349 (Mo We Fr) 13 00 13 50) :given)
+(rassert! (meetingTime eecs349 MWF 13 00 13 50) :given)
 (rassert! (:or (prereq eecs349 eecs325)
                 (prereq eecs349 eecs214)) :given)
 (rassert! (satisfy eecs349 AIB) :given)
@@ -275,7 +275,7 @@
 (rassert! (nosatisfy eecs349 C5) :given)
 (rassert! (nosatisfy eecs349 C6) :given)
 
-(rassert! (meetingTime eecs370 (Tu Th) 14 00 15 50) :given)
+(rassert! (meetingTime eecs370 TTH 14 00 15 50) :given)
 (rassert! (prereq eecs370 eecs214) :given)
 (rassert! (prereqor eecs370 (eecs322 eecs343 eecs348 eecs351)) :given)
 (rassert! (satisfy eecs370 IB) :given)
@@ -292,7 +292,7 @@
 (rassert! (nosatisfy eecs370 C5) :given)
 (rassert! (nosatisfy eecs370 C6) :given)
 
-(rassert! (meetingTime eecs394 (Tu Th) 11 00 12 20) :given)
+(rassert! (meetingTime eecs394 TTH 11 00 12 20) :given)
 (rassert! (satisfy eecs394 SDB) :given)
 (rassert! (satisfy eecs394 P) :given)
 (rassert! (satisfy eecs394 D) :given)
