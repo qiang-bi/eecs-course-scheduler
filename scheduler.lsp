@@ -17,7 +17,7 @@
 (defparameter *classes*
    '(eecs111 eecs211 eecs212 eecs213 eecs214 eecs303 eecs322 eecs336 eecs339 eecs345 eecs346 eecs348 eecs349 eecs370 eecs394))
 
-(defparameter *requirements* '( SB SDB ))
+(defparameter *requirements* '(C1 C2 C3 C4 C5 SB SDB AIB TB IB D P))
 
 (defparameter *constraint-file* "data")
 

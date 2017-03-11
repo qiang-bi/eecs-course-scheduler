@@ -95,7 +95,7 @@
 (rassert! (nosatisfy eecs211 C6) :given)
 
 (rassert! (meetingTime eecs212 (Mo We Fr) 15 00 15 50) :given)
-(rassert! (:or (prereq eecs212 eecs111) (prereq eecs212 eecs110)) :given)
+(rassert! (prereqor eecs212 (eecs111 eecs110)) :given)
 (rassert! (nosatisfy eecs212 SB) :given)
 (rassert! (nosatisfy eecs212 SDB) :given)
 (rassert! (nosatisfy eecs212 AIB) :given)
@@ -151,7 +151,6 @@
 (rassert! (nosatisfy eecs303 TB) :given)
 (rassert! (nosatisfy eecs303 IB) :given)
 (rassert! (nosatisfy eecs303 P) :given)
-(rassert! (nosatisfy eecs303 C) :given)
 (rassert! (nosatisfy eecs303 C4) :given)
 (rassert! (nosatisfy eecs303 C1) :given)
 (rassert! (nosatisfy eecs303 C2) :given)
@@ -193,10 +192,8 @@
 
 
 (rassert! (meetingTime eecs339 (Tu Th) 11 00 12 20) :given)
-(rassert! (:or (:and (prereq eecs339 eecs214)
-                      (prereq eecs339 eecs213))
-                (:and (prereq eecs339 eecs205)
-                      (prereq eecs339 eecs214))) :given)
+(rassert! (prereq eecs339 eecs214) :given)
+(rassert! (prereqor eecs339 (eecs213 eecs205)) :given)
 (rassert! (satisfy eecs339 SB) :given)
 (rassert! (satisfy eecs339 P) :given)
 (rassert! (satisfy eecs339 D) :given)
@@ -279,11 +276,8 @@
 (rassert! (nosatisfy eecs349 C6) :given)
 
 (rassert! (meetingTime eecs370 (Tu Th) 14 00 15 50) :given)
-(rassert! (:and (prereq eecs370 eecs214)
-                (:or (prereq eecs370 eecs322)
-                     (prereq eecs370 eecs343)
-                     (prereq eecs370 eecs348)
-                     (prereq eecs370 eecs351))) :given)
+(rassert! (prereq eecs370 eecs214) :given)
+(rassert! (prereqor eecs370 (eecs322 eecs343 eecs348 eecs351)) :given)
 (rassert! (satisfy eecs370 IB) :given)
 (rassert! (satisfy eecs370 P) :given)
 (rassert! (satisfy eecs370 D) :given)
