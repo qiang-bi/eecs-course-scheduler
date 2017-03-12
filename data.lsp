@@ -1,10 +1,18 @@
+;;;; -*- Mode: LISP; Syntax: Common-Lisp; Base: 10;                             -*-
+;;;; ------------------------------------------------------------------------------
+;;;; File name: data.lsp
+;;;;    System: LTRE
+;;;;   Version: 1.0
+;;;;    Author: Qiang Bi
+;;;;   Created: March 8, 2017
+;;;; ------------------------------------------------------------------------------
+
 ;data are in the following forms
 ; (rassert! (meetingTime catalog_num meetingDays startHr endHr startMin EndMin))
 ; (rassert! (prereq  catalog_num/topics prerequisite))
 ; (rassert! (prereqor  catalog_num/topics (prerequisite list)))
 ; (rassert! (satisfy catalog_num/topics equirement))
 ;;req are C*6, SB SDB AIB TB IB, D*6, P*2
-
 
 ;;pairwise nogood for each two requirement
 (rassert! (pairwise-nogood SB SDB) :given)
