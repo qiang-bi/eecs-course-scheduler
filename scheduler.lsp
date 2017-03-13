@@ -14,12 +14,12 @@
 ;;enter the courses taken already in a list and each course in the format
 ;; (courseTaken *coure_catalog_number*)
 (defparameter *course-taken*
-    '((courseTaken eecs111)
+    '((courseTaken eecs213)
       (courseTaken eecs211)
       (courseTaken eecs214)))
 
 ;;enter the requirement looking to fulfill
-(defparameter *requirements* '(C1 C2 C3 C4 C5 SB SDB AIB TB IB D P))
+(defparameter *requirements* '(SB AIB))
 
 ;;aftering modifying code above,
 ;;load the startup.cl file and then call (find-classes)
